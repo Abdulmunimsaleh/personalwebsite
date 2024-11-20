@@ -396,6 +396,100 @@
       .toggle-btn:hover {
         background-color: var(--bgDark);
       }
+
+      /* Base styles for all devices */
+      body {
+        font-family: "Poppins", sans-serif;
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 100%;
+        padding: 0 15px;
+      }
+
+      /* Media queries for responsiveness */
+      @media (max-width: 768px) {
+        header nav .left a {
+          margin-right: 1rem;
+        }
+
+        .hero .left img {
+          width: 100%;
+          height: auto;
+        }
+
+        .hero .right {
+          margin-top: 0;
+          text-align: center;
+        }
+
+        .hero .right h1 {
+          font-size: 2rem;
+        }
+
+        .box {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .btn2,
+        .btn3 {
+          margin: 1rem 0;
+        }
+
+        section.about .container {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        section.about .left img {
+          width: 150px;
+          margin-bottom: 1rem;
+        }
+
+        section.services .card-grid {
+          grid-template-columns: 1fr;
+          row-gap: 1rem;
+        }
+
+        .side-panel {
+          width: 100%;
+        }
+
+        .toggle-btn {
+          left: 10px;
+          top: 10px;
+        }
+
+        .close-icon {
+          font-size: 1.2rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero .right h1 {
+          font-size: 1.8rem;
+        }
+
+        .hero .right p {
+          font-size: 0.9rem;
+        }
+
+        .btn {
+          font-size: 0.8rem;
+          padding: 0.4rem 1.5rem;
+        }
+
+        .services-head {
+          font-size: 1.2rem;
+        }
+
+        section.about .left img {
+          width: 100px;
+        }
+      }
     </style>
 
     <header>
@@ -591,6 +685,12 @@
           link.click();
           document.body.removeChild(link);
         });
+
+      // Ensure the side panel is hidden when the page loads
+      window.addEventListener("DOMContentLoaded", function () {
+        const sidePanel = document.getElementById("side-panel");
+        sidePanel.style.display = "none";
+      });
 
       // Toggle the side panel visibility
       document
